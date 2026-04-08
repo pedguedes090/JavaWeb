@@ -1,0 +1,13 @@
+Hệ thống được thiết kế theo mô hình 3 tầng gồm Controller, Service và Repository.
+Controller nhận request từ client, Service xử lý nghiệp vụ, Repository thao tác dữ liệu.
+
+Ứng dụng có 3 route chính:
+- GET /orders/{id}: xem đơn hàng
+- POST /orders: tạo đơn hàng
+- DELETE /orders/{id}: hủy đơn hàng
+
+Để xử lý lỗi người dùng nhập sai ID (chữ thay vì số), hệ thống sử dụng try-catch để kiểm tra và trả về thông báo thân thiện.
+
+Về idempotent:
+- DELETE là an toàn vì gọi nhiều lần vẫn cùng trạng thái (đã hủy)
+- POST nguy hiểm vì mỗi lần gọi tạo thêm dữ liệu mới

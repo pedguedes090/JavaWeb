@@ -1,0 +1,4 @@
+Trong Cách A, số 5 nằm trong đường dẫn URL (URI Path), tức là một phần của chính tài nguyên đang được truy cập
+Trong Cách B, số 5 nằm ở chuỗi truy vấn (Query String) sau dấu ?, thường dùng cho lọc, tìm kiếm hoặc truyền tham số phụ
+Theo bài học, khi cần lấy một đối tượng cụ thể theo ID, dùng @PathVariable sẽ phù hợp hơn vì URL rõ nghĩa hơn, dễ đọc hơn và thể hiện đúng tài nguyên cần truy cập
+Vì vậy, em chọn Cách A
