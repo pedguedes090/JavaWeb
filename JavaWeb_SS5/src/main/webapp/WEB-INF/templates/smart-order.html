@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main-layout}"
+      lang="vi">
+<head>
+    <title>Đặt món nhanh - Smart Order</title>
+    <style>
+        .order-card { border: 1px solid #ccc; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; }
+        .price-tag { color: #e67e22; font-size: 24px; font-weight: bold; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; }
+        .form-control { width: 100%; padding: 8px; box-sizing: border-box; }
+        .btn-submit { background-color: #27ae60; color: white; border: none; padding: 10px 20px; width: 100%; cursor: pointer; font-size: 16px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <div class="order-card">
+        <h2>Hệ thống Smart-Order</h2>
+
+        <h3 th:text="${dish.name}">Bít tết bò Mỹ (Dữ liệu mẫu cho Designer)</h3>
+
+        <p>Giá tham khảo:
+            <span class="price-tag" th:text="${#numbers.formatDecimal(dish.price, 0, 'COMMA', 0, 'POINT')}">
+                    250,000
+                </span> VNĐ
+        </p>
+
+        <hr>
+
+        <form th:action="@{/bai5/order/submit}" method="post">
+            <input type="hidden" name="dishId" th:value="${dish.id}" value="999" />
+
+            <div class="form-group">
+                <label>Tên khách hàng:</label>
+                <input type="text" name="customerName" class="form-control" placeholder="Nhập tên của bạn" required />
+            </div>
+
+            <div class="form-group">
+                <label>Số lượng:</label>
+                <input type="number" name="quantity" class="form-control" value="1" min="1" max="20" required />
+            </div>
+
+            <button type="submit" class="btn-submit" th:if="${dish.available}">XÁC NHẬN ĐẶT MÓN</button>
+
+            <button type="button" class="btn-submit" th:unless="${dish.available}" style="background-color: grey;" disabled>
+                MÓN ĐANG TẠM HẾT
+            </button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

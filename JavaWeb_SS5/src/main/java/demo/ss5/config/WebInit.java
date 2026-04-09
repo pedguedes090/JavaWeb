@@ -1,17 +1,18 @@
-package org.example.demo112.Config;
+package demo.ss5.config;
 
 import org.jspecify.annotations.Nullable;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebInit extends AbstractAnnotationConfigDispatcherServletInitializer {
+
     @Override
     protected Class<?> @Nullable [] getRootConfigClasses() {
-        return new Class[]{WebConfig.class};
+        return new Class[0];
     }
 
     @Override
     protected Class<?> @Nullable [] getServletConfigClasses() {
-        return new Class[0];
+        return new Class[]{WebConfig.class};
     }
 
     @Override

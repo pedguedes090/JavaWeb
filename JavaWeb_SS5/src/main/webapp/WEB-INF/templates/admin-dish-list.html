@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản Lý Thực Đơn</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        table { width: 70%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #dddddd; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .alert-error { color: #721c24; background-color: #f8d7da; padding: 10px; border: 1px solid #f5c6cb; margin-bottom: 15px;}
+        .alert-success { color: #155724; background-color: #d4edda; padding: 10px; border: 1px solid #c3e6cb; margin-bottom: 15px;}
+        .btn-edit { background-color: #007bff; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px; }
+    </style>
+</head>
+<body>
+
+<h2>Quản Trị: Danh Sách Món Ăn</h2>
+
+<div th:if="${errorMessage}" th:text="${errorMessage}" class="alert-error"></div>
+<div th:if="${successMessage}" th:text="${successMessage}" class="alert-success"></div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Mã</th>
+        <th>Tên Món Ăn</th>
+        <th>Giá Tiền</th>
+        <th>Trạng Thái</th>
+        <th>Hành Động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="dish : ${dishes}">
+        <td th:text="${dish.id}">1</td>
+        <td th:text="${dish.name}">Tên món</td>
+        <td th:text="${#numbers.formatDecimal(dish.price, 0, 'COMMA', 0, 'POINT')}">0</td>
+        <td th:text="${dish.available ? 'Còn hàng' : 'Hết hàng'}">Còn</td>
+        <td>
+            <a th:href="@{|/bai3/edit/${dish.id}|}" class="btn-edit">Chỉnh sửa</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
