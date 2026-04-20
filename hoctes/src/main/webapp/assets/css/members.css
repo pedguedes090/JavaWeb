@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f8;
+    color: #1f2937;
+}
+
+.page {
+    max-width: 1080px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+h1 {
+    margin-bottom: 16px;
+}
+
+.empty-state {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px dashed #9ca3af;
+}
+
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.member-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    gap: 12px;
+}
+
+.avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #e5e7eb;
+}
+
+.member-info h2 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.member-info p {
+    margin-top: 4px;
+    font-size: 14px;
+}
+
